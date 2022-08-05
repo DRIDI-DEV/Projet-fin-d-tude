@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des documents{% endblock %}
+
+{% block body %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<br>
+    <h1 style="text-align: center"><u>Liste de documents</u></h1>
+    <hr>
+<br>
+    <div style="margin-left: 50px; margin-right: 50px;">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th style="width: 25%">Id</th>
+
+                <th style="width: 25%">Nom</th>
+                <th style="width: 25%">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for document in documents %}
+            <tr>
+                <td>{{ document.id }}</td>
+                <td>{{ document.nbrPage }}</td>
+                <td><a href=""> {{ document.filename }}</a></td>
+                <td>
+                    <a class="btn btn-outline-dark" href="{{ path('document_show', {'id': document.id}) }}">Afficher</a>
+                    <a class="btn btn-outline-dark" href="{{ path('document_edit', {'id': document.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<table class="table">
+    <tr>
+        <td>
+    <a class="btn btn-dark" href="{{ path('document_new') }}">Ajouter nouveau</a>
+        </td>
+
+    </tr>
+</table>
+    </div>
+{% endblock %}

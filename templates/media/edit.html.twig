@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Media{% endblock %}
+
+{% block body %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<br><br>
+<div style="margin-left: 50px; margin-right: 50px;">
+    <h1 style="text-align: center">Modifier le média</h1>
+    <br><br>
+   <!-- <form name="media" method="post" enctype="multipart/form-data">
+        <div id="media">
+            <div>
+                <label for="media_title" class="required">Title</label>
+                <input class="form-controle" type="text" id="media_title" name="media[title]" required="required" maxlength="255" value="{{ medium.title }}">
+            </div>
+            <div>
+                <label for="media_description" class="required">Description</label>
+                <input class="form-controle" type="text" id="media_description" name="media[description]" required="required" maxlength="500" value="{{ medium.description }}">
+            </div>
+            <br>
+            <div>
+                <div class="upload-btn-wrapper">
+                    <button class="btn1">Importer un fichier</button>
+                    <input class="input" type="file" id="media_mediaFile" name="media[mediaFile]" required="required">
+                </div>
+            </div>
+            <input type="hidden" id="media__token" name="media[_token]" value="2Gbc3z4opqRsITk6ONr5kiAVH0D1_ToH_AS8xAOtfgQ">
+        </div>
+        <br><br>
+        <table>
+            <tr>
+                <td>
+        <button class="btn btn-dark">Update</button>
+                </td>
+                <td>-->
+
+     {{ include('media/_form.html.twig', {'button_label': 'Update'}) }}
+    <!--</td>
+    <td>
+    <a class="btn btn-outline-dark"  href="{{ path('media_index') }}">Retour à la liste</a>
+    </td>
+    <td>-->
+    {{ include('media/_delete_form.html.twig') }}
+   <!-- </td>
+    </tr>
+    </table>
+    </form>-->
+</div>
+    <style>
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn1 {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: auto;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .form-controle{
+            display:block;
+            width:30%;
+            padding:.375rem .75rem;
+            font-size:1rem;
+            line-height:1.5;
+            color:#495057;
+            background-color:#fff;
+            background-clip:padding-box;
+            border:1px solid #ced4da;border-radius:.25rem;
+
+        }
+    </style>
+{% endblock %}

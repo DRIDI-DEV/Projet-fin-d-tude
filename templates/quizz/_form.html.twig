@@ -1,0 +1,33 @@
+{{ form_start(form) }}
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="row">
+    <div class="col">
+        {{ form_row(form.type) }}
+    </div>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.nom) }}
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.logo) }}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

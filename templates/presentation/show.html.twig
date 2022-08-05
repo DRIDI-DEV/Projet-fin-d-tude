@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presentation{% endblock %}
+
+{% block body %}
+    <h1>Presentation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ presentation.id }}</td>
+            </tr>
+            <tr>
+                <th>Id_pres</th>
+                <td>{{ presentation.idPres }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ presentation.date ? presentation.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ presentation.client }}</td>
+            </tr>
+            <tr>
+                <th>Id_contenu</th>
+                <td>{{ presentation.idContenu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('presentation_index') }}">back to list</a>
+
+    <a href="{{ path('presentation_edit', {'id': presentation.id}) }}">edit</a>
+
+    {{ include('presentation/_delete_form.html.twig') }}
+{% endblock %}

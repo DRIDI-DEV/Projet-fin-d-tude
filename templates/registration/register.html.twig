@@ -1,0 +1,222 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Inscrivez-vous s'il vous plait</h3>
+                </div>
+                <div class="panel-body">
+            <form method="post">
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+
+
+
+                {{ form_start(registrationForm) }}
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                    {{ form_row(registrationForm.nom, {
+                        label: 'nom'
+                    }) }}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+
+                    {{ form_row(registrationForm.prenom, {
+                        label: 'prenom'
+                    }) }}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+
+                    <br>
+                    {{ form_row(registrationForm.adress, {
+                        label: 'adress'
+                    }) }}
+
+                </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-6">
+                        <div class="form-group">
+
+                    <br>
+                    {{ form_row(registrationForm.email, {
+             label: 'E-mail'
+        }) }}
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="row">
+                        <div class="form-group">
+<br>
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+
+                        </div>
+                    </div>
+                </div>
+                    <br>
+                 {#    {{ form_row(registrationForm.roles, {
+                        label: 'choix'
+                    }) }} #}
+                <br><br><br><br><br><br>
+                 <label>Accepter les termes</label>
+        <input class="chec" type="checkbox" id="registration_form_agreeTerms" required="required" value="1">
+       {# {{ form_row(registrationForm.agreeTerms, {label: 'Accepter les termes' })  }} #}
+
+<br>
+        <button type="submit" class="btn btn-info btn-block">Enregistrer</button>
+                    <br>
+
+                <a  href="{{ path('app_login') }}">vous avez un compte ?</a>
+
+    {{ form_end(registrationForm) }}
+       </div>
+
+
+
+
+
+            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .container {
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-top: -50px;
+        }
+        body{
+            background-color: #525252;
+        }
+        .centered-form{
+            margin-top: 60px;
+        }
+
+        .centered-form .panel{
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+        }
+    </style>
+  <!--  <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+       /* .main{
+            margin: 0px 0px;
+        }
+*/
+        .main-head{
+            height: 150px;
+            background: #FFF;
+
+        }
+
+        .chec{
+            /*position: absolute;*/
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+        .sidenav {
+            height: 100%;
+            background-color: #000;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+
+        .main {
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+        }
+
+        @media screen and (max-width: 450px) {
+            .login-form{
+                margin-top: 10%;
+            }
+
+            .register-form{
+                margin-top: 10%;
+            }
+        }
+
+        @media screen and (min-width: 768px){
+            .main{
+                margin-left: 40%;
+            }
+
+            .sidenav{
+                width: 40%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+            }
+
+            .login-form{
+                margin-top: 40%;
+            }
+
+            .register-form{
+                margin-top: 20%;
+            }
+        }
+
+
+        .login-main-text{
+            margin-top: 20%;
+            padding: 60px;
+            color: #fff;
+        }
+
+        .login-main-text h2{
+            font-weight: 300;
+        }
+
+        .btn-black{
+            background-color: #000 !important;
+            color: #fff;
+        }
+    </style>-->
+{% endblock %}

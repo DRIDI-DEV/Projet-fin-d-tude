@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Document{% endblock %}
+
+{% block body %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div style="margin-right: 50px; margin-left: 50px;">
+    <br><br>
+    <h1 style="text-align: center">Creer un nouveau Document</h1>
+<br><br>
+
+    {{ form_start(form) }}
+    {{ include('document/_form.html.twig') }}
+    {{ form_row(form.brochure) }}
+    {{ form_end(form) }}
+<br><br>
+
+    <a style="margin-left: 500px; margin-right: 20px;" class="btn btn-outline-dark" href="{{ path('document_index') }}">Retour à la liste</a>
+</div>
+{% endblock %}
